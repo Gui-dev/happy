@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import landing from './../../assets/images/landing.svg'
 
@@ -57,7 +58,7 @@ export const Location = styled.header`
   }
 `
 
-export const EnterApp = styled.a`
+export const EnterApp = styled(Link)`
   position: absolute;
   right: 0;
   bottom: 0;
