@@ -7,6 +7,8 @@
     "start": "ts-node-dev --transpile-only --ignore-watch node_modules index.ts"
   },
   "dependencies": {
+    "@types/cors": "^2.8.8",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   },
   "devDependencies": {
