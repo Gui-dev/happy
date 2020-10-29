@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 
+import './database/connection'
+
 export class App {
 
   public app: express.Application
@@ -20,4 +22,4 @@ export class App {
   routes () {
 
   }
-} 
+}
