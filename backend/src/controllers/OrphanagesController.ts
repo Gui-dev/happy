@@ -5,6 +5,13 @@ import { Orphanage } from './../models/Orphanage'
 
 export class OrphanagesController {
 
+  public async index (request: Request, response: Response) {
+    const orphanagesRepository = getRepository(Orphanage)
+    const orphanages = await orphanagesRepository.find()
+
+    return response.status(200).json(orphanages)
+  }
+
   public async create (request: Request, response: Response) {
     const {
       name,
