@@ -5,6 +5,7 @@ import { OrphanagesController } from './../controllers/OrphanagesController'
 const orphanagesRoutes = Router()
 const orphanagesController = new OrphanagesController()
 
+orphanagesRoutes.get('/', orphanagesController.index)
 orphanagesRoutes.post('/', orphanagesController.create)
 
 export default orphanagesRoutes
