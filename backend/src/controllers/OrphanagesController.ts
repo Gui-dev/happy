@@ -3,6 +3,7 @@ import { getRepository } from 'typeorm'
 
 import { Orphanage } from './../models/Orphanage'
 import { OrphanagesView } from './../views/OrphanagesView'
+import { createOrphanageValidation } from './../validations/orphanagesValidation'
 
 export class OrphanagesController {
 
@@ -46,7 +47,7 @@ export class OrphanagesController {
     })
 
     const orphanagesRepository = getRepository(Orphanage)
-    const orphanage = orphanagesRepository.create({
+    const data = {
       name,
       latitude,
       longitude,
@@ -55,7 +56,13 @@ export class OrphanagesController {
       opening_hours,
       open_on_weekends,
       images
+    }
+
+    await createOrphanageValidation.validate(data, {
+      abortEarly: false
     })
+
+    const orphanage = orphanagesRepository.create(data)
 
     await orphanagesRepository.save(orphanage)
 
