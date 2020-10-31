@@ -7,7 +7,9 @@ export class OrphanagesController {
 
   public async index (request: Request, response: Response) {
     const orphanagesRepository = getRepository(Orphanage)
-    const orphanages = await orphanagesRepository.find()
+    const orphanages = await orphanagesRepository.find({
+      relations: ['images']
+    })
 
     return response.status(200).json(orphanages)
   }
@@ -15,7 +17,9 @@ export class OrphanagesController {
   public async show (request: Request, response: Response) {
     const { id } = request.params
     const orphanagesRepository = getRepository(Orphanage)
-    const orphanages = await orphanagesRepository.findOneOrFail(id)
+    const orphanages = await orphanagesRepository.findOneOrFail(id, {
+      relations: ['images']
+    })
 
     return response.status(200).json(orphanages)
   }
