@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import { join } from 'path'
 
 import './database/connection'
 import routes from './routes'
@@ -17,6 +18,7 @@ export class App {
 
   middlewares () {
     this.app.use(express.json())
+    this.app.use('/uploads', express.static(join(__dirname, '..', 'uploads')))
     this.app.use(cors())
   }
 
