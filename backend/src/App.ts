@@ -1,10 +1,15 @@
 import express, { ErrorRequestHandler, Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import { join } from 'path'
+import { ValidationError } from 'yup'
 import 'express-async-errors'
 
 import './database/connection'
 import routes from './routes'
+
+interface ValidationErrors {
+  [key: string]: string[]
+}
 
 export class App {
 
@@ -32,6 +37,15 @@ export class App {
 
     this.app.use((error: ErrorRequestHandler, request: Request, response: Response, next: NextFunction) => {
       console.error(error)
+      let errors: ValidationErrors = {}
+
+      if (error instanceof ValidationError) {
+        error.inner.forEach(err => {
+          errors[err.path] = err.errors
+        })
+
+        return response.status(400).json({ message: 'Validation Fails', errors })
+      }
 
       return response.status(500).json({ message: 'Internal server error' })
     })
