@@ -28,6 +28,37 @@ export const Container = styled.section`
       background-color: #17D6ED;
     }
   }
+
+  .map-popup .leaflet-popup-content-wrapper {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 2rem;
+    box-shadow: none;
+  }
+  
+  .map-popup .leaflet-popup-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0089A5;
+    margin: 0.8rem 1.2rem;
+  }
+
+  .map-popup .leaflet-popup-content a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: #15C3D6;
+    box-shadow: 1.7rem 2.7rem 4.1rem rgba(23, 142, 166, 0.16);
+    border-radius: 1.2rem
+  }
+
+  .map-popup .leaflet-popup-tip-container {
+    display: none;
+  }
 `
 
 export const SideBar = styled.aside`
