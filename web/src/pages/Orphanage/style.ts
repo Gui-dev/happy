@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const Aside = styled.aside`
   position: fixed;
   height: 100%;
-  padding: 32px 24px;
+  padding: 3.2rem 2.4rem;
   background: linear-gradient(329.54deg, #15B6D6 0%, #15D6D6 100%);
 
   display: flex;
@@ -17,25 +17,21 @@ export const Aside = styled.aside`
   align-items: center;
 
   img {
-    width: 48px;
+    width: 4.8rem;
   }
 
   a, button {
-    width: 48px;
-    height: 48px;
-
-    border: 0;
-
-    background: #12AFCB;
-    border-radius: 16px;
-
-    cursor: pointer;
-
-    transition: background-color 0.2s;
-
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    background: #12AFCB;
+    border: 0;
+    border-radius: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
 
     &:hover {
       background: #17D6EB;
@@ -52,24 +48,29 @@ export const OrphanageDetails = styled.div`
   margin: 64px auto;
   background: #FFFFFF;
   border: 1px solid #D3E2E5;
-  border-radius: 20px;
+  border-radius: 2rem;
   overflow: hidden;
+
+  > img {
+    width: 100%;
+  }
 
   .images {
     display: grid;
     grid-template-columns: repeat(6 ,1fr);
-    column-gap: 16px;
+    column-gap: 1.6rem;
 
-    margin: 16px 40px 0;
+    margin: 1.6rem 4rem 0;
 
     button {
+      font-size: 1.8rem;
+      height: 8.8rem;
       border: 0;
-      height: 88px;
       background: none;
-      cursor: pointer;
-      border-radius: 20px;
-      overflow: hidden;
+      border-radius: 2rem;
       outline: none;
+      overflow: hidden;
+      cursor: pointer;
       
       opacity: 0.6;
 
@@ -79,7 +80,7 @@ export const OrphanageDetails = styled.div`
 
       img {
         width: 100%;
-        height: 88px;
+        height: 8.8rem;
         object-fit: cover;
       }
     }
@@ -90,30 +91,32 @@ export const OrphanageDetailsContent = styled.div`
   padding: 8rem;
 
   h1 {
+    font-size: 5.4rem;
     color: #4D6F80;
-    font-size: 54px;
-    line-height: 54px;
-    margin-bottom: 8px;
+    line-height: 5.4rem;
+    margin-bottom: 0.8rem;
   }
 
   p {
+    font-size: 1.8rem;
     line-height: 28px;
     color: #5C8599;
-    margin-top: 24px;
+    margin-top: 2.4rem;
   }
 
   .map-container {
-    margin-top: 64px;
+    margin-top: 6.4rem;
     background: #E6F7FB;
     border: 1px solid #B3DAE2;
-    border-radius: 20px;
+    border-radius: 2rem;
 
     footer {
-      padding: 20px 0;
+      padding: 2rem 0;
       text-align: center;
 
       a {
-        line-height: 24px;
+        font-size: 1.8rem;
+        line-height: 2.4rem;
         color: #0089A5;
         text-decoration: none;
       }
@@ -121,47 +124,49 @@ export const OrphanageDetailsContent = styled.div`
 
     .leaflet-container {
       border-bottom: 1px solid #DDE3F0;
-      border-radius: 20px;
+      border-radius: 2rem;
     }
   }
 
   hr {
+    margin: 6.4rem 0;
     width: 100%;
     height: 1px;
     border: 0;
     background: #D3E2E6;
-    margin: 64px 0;
   }
 
   h2 {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: 3.6rem;
+    line-height: 4.6rem;
     color: #4D6F80;
   }
 
   .open-details {
-    margin-top: 24px;
+    margin-top: 2.4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
+    column-gap: 2rem;
 
     div {
-      padding: 32px 24px;
-      border-radius: 20px;
-      line-height: 28px;
+      padding: 3.2rem 2.4rem;
+      border-radius: 2rem;
+      line-height: 2.8rem;
 
       svg {
         display: block;
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
       }
 
       &.hour {
+        font-size: 1.8rem;
         background: linear-gradient(149.97deg, #E6F7FB 8.13%, #FFFFFF 92.67%);
         border: 1px solid #B3DAE2;
         color: #5C8599;
       }
 
       &.open-on-weekends {
+        font-size: 1.8rem;
         background: linear-gradient(154.16deg, #EDFFF6 7.85%, #FFFFFF 91.03%);
         border: 1px solid #A1E9C5;
         color: #37C77F;
@@ -171,25 +176,23 @@ export const OrphanageDetailsContent = styled.div`
 `
 
 export const ButtonContact = styled.button`
-  margin-top: 64px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #FFFFFF;
   width: 100%;
   height: 64px;
-  border: 0;
-  cursor: pointer;
+  margin-top: 64px;
   background: #3CDC8C;
-  border-radius: 20px;
-  color: #FFFFFF;
-  font-weight: 800;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  border: 0;
+  border-radius: 2rem;
+  cursor: pointer;
   transition: background-color 0.2s;
 
   svg {
-    margin-right: 16px;
+    margin-right: 1.6rem;
   }
 
   &:hover {
