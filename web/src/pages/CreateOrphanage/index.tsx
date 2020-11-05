@@ -1,15 +1,13 @@
 import React from "react"
 import { Map, Marker, TileLayer } from 'react-leaflet'
 import L from 'leaflet'
-import { useHistory } from "react-router-dom"
-import { FiArrowLeft, FiPlus } from "react-icons/fi"
+import { FiPlus } from "react-icons/fi"
 
 import mapMarkerImg from './../../assets/images/map-marker.svg'
-import { Container, Aside, Main, Form, InputBlock, ButtonSubmit } from './style'
+import { Sidebar } from './../../components/Sidebar'
+import { Container, Main, Form, InputBlock, ButtonSubmit } from './style'
 
 export const CreateOrphanage: React.FC = () => {
-
-  const { goBack } = useHistory()
   const happyMapIcon = L.icon({
     iconUrl: mapMarkerImg,
   
@@ -20,15 +18,8 @@ export const CreateOrphanage: React.FC = () => {
 
   return (
     <Container>
-      <Aside>
-        <img src={mapMarkerImg} alt="Happy" />
 
-        <footer>
-          <button type="button" onClick={goBack}>
-            <FiArrowLeft size={24} color="#FFF" />
-          </button>
-        </footer>
-      </Aside>
+      <Sidebar />
 
       <Main>
         <Form className="create-orphanage-form">
