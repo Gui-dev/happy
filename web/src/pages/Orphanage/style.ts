@@ -5,40 +5,6 @@ export const Container = styled.div`
   min-height: 100vh;
 `
 
-export const Aside = styled.aside`
-  position: fixed;
-  height: 100%;
-  padding: 3.2rem 2.4rem;
-  background: linear-gradient(329.54deg, #15B6D6 0%, #15D6D6 100%);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  img {
-    width: 4.8rem;
-  }
-
-  a, button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    width: 4.8rem;
-    height: 4.8rem;
-    background: #12AFCB;
-    border: 0;
-    border-radius: 1.6rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background: #17D6EB;
-    }
-  }
-`
-
 export const Main = styled.main`
   flex: 1;
 `
