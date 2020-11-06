@@ -27,9 +27,7 @@ interface OrphanagesProps {
 export const OrphanagesMap: React.FC = () => {
 
   const [orphanages, setOrphanages] = useState<OrphanagesProps[]>([])
-
-  console.log(orphanages)
-
+  
   useEffect(() => {
     api.get('/orphanages')
       .then(response => {
