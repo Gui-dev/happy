@@ -34,6 +34,9 @@ export const Orphanage: React.FC = () => {
 
   const { id } = useParams<OrphanageRouteParams>()
   const [orphanage, setOrphanage] = useState<OrphanagesProps>()
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+
+
   
   useEffect(() => {
     api.get(`/orphanages/${id}`)
@@ -53,12 +56,17 @@ export const Orphanage: React.FC = () => {
 
       <Main>
         <OrphanageDetails>
-          <img src={ orphanage.images[0].url } alt={ orphanage.name } title={ orphanage.name }/>
+          <img src={ orphanage.images[activeImageIndex].url } alt={ orphanage.name } title={ orphanage.name }/>
 
           <div className="images">
-            { orphanage.images.map(image => {
+            { orphanage.images.map((image, index) => {
               return (
-                <button key={ String(image.id) } className="active" type="button">
+                <button 
+                  type="button"
+                  key={ String(image.id) } 
+                  className={ activeImageIndex === index ? 'active' : '' }
+                  onClick={ () => setActiveImageIndex(index) } 
+                >
                   <img src={ image.url } alt={ orphanage.name } title={ orphanage.name }/>
                 </button>
               )
