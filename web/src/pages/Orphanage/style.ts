@@ -137,6 +137,13 @@ export const OrphanageDetailsContent = styled.div`
         border: 1px solid #A1E9C5;
         color: #37C77F;
       }
+
+      &.dont-open {
+        font-size: 1.8rem;
+        background: linear-gradient(154.16deg, #FDF8F5 7.85%, #FFFFFF 91.03%);
+        border: 1px solid #FFBCD4;
+        color: #FF669D;
+      }
     }
   }
 `
