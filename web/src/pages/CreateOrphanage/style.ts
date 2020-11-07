@@ -17,6 +17,12 @@ export const Form = styled.form`
   border-radius: 2rem;
   overflow: hidden;
 
+  .leaflet-container {
+    margin-bottom: 4rem;
+    border: 1px solid #D3E2E5;
+    border-radius: 2rem;
+  }
+
   fieldset {
     border: 0;
   }
