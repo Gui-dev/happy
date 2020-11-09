@@ -87,13 +87,32 @@ export const InputBlock = styled.div`
     resize: vertical;
   }
 
-  .new-image {
-    width: 100%;
-    height: 6.4rem;
-    background: #F5F8FA;
-    border: 1px dashed #96D2F0;
-    border-radius: 2rem;
-    cursor: pointer;
+  .images-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1.6rem;
+
+    img {
+      max-width: 100%;
+      height: 9.6rem;
+      object-fit: cover;
+      border-radius: 2rem;
+    }
+
+    .new-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 9.6rem;
+      background: #F5F8FA;
+      border: 1px dashed #96D2F0;
+      border-radius: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  input[type=file] {
+    display: none;
   }
 
   .button-select {
