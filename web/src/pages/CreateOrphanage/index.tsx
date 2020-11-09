@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { ChangeEvent, FormEvent, useState } from "react"
 import { Map, Marker, TileLayer } from 'react-leaflet'
 import { LeafletMouseEvent } from 'leaflet'
 import { FiPlus } from "react-icons/fi"
@@ -14,11 +14,43 @@ export const CreateOrphanage: React.FC = () => {
   const [about, setAbout] = useState('')
   const [instructions, setInstructions] = useState('')
   const [opening_hours, setOpeningHours] = useState('')
-  const [open_on_weekend, setOpenOnWeekend] = useState('')
+  const [open_on_weekends, setOpenOnWeekends] = useState(true)
+  const [images, setImages] = useState<File[]>([])
+  const [previewImages, setPreviewImages] = useState<string[]>([])
 
   const handleMapMarker = (event: LeafletMouseEvent) => {
     const { lat, lng } = event.latlng
     setPosition({ latitude: lat, longitude: lng })
+  }
+
+  const handleSelectImages = (event: ChangeEvent<HTMLInputElement>) => {
+    const fileImages = event.target.files
+    
+    if (!fileImages) {
+      return
+    }
+
+    const selectedImages = Array.from(fileImages)
+    setImages(selectedImages)
+    const selectedPreviewImages = selectedImages.map(image => {
+      return URL.createObjectURL(image)
+    })
+    setPreviewImages(selectedPreviewImages)
+  }
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault()
+    const { latitude, longitude } = position
+    console.log({
+      name,
+      about,
+      latitude,
+      longitude,
+      instructions,
+      opening_hours,
+      open_on_weekends,
+      images
+    })
   }
 
   return (
@@ -27,7 +59,7 @@ export const CreateOrphanage: React.FC = () => {
       <Sidebar />
 
       <Main>
-        <Form className="create-orphanage-form">
+        <Form className="create-orphanage-form" onSubmit={ handleSubmit }>
           <fieldset>
             <legend>Dados</legend>
 
@@ -75,13 +107,26 @@ export const CreateOrphanage: React.FC = () => {
             <InputBlock>
               <label htmlFor="images">Fotos</label>
 
-              <div className="uploaded-image">
+              <div className="images-container">
 
+                { previewImages.map(image => {
+                  return (
+                    <img key={image} src={image} alt={name} title={name}/>
+                  )
+                }) }
+
+                <label htmlFor="image[]" className="new-image">
+                  <FiPlus size={24} color="#15b6d6" />
+                </label>
               </div>
+              
+              <input 
+                type="file" 
+                id="image[]" 
+                multiple
+                onChange={ handleSelectImages }
+              />
 
-              <button className="new-image">
-                <FiPlus size={24} color="#15b6d6" />
-              </button>
             </InputBlock>
           </fieldset>
 
@@ -110,8 +155,20 @@ export const CreateOrphanage: React.FC = () => {
               <label htmlFor="open_on_weekends">Atende fim de semana</label>
 
               <div className="button-select">
-                <button type="button" className="active">Sim</button>
-                <button type="button">Não</button>
+                <button 
+                  type="button" 
+                  className={open_on_weekends ? 'active': ''}
+                  onClick={ () => setOpenOnWeekends(true) }
+                >
+                  Sim
+                </button>
+                <button 
+                  type="button" 
+                  className={!open_on_weekends ? 'active': ''}                  
+                  onClick={ () => setOpenOnWeekends(false) }
+                >
+                  Não
+                </button>
               </div>
             </InputBlock>
           </fieldset>
