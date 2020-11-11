@@ -22,6 +22,7 @@ export const CalloutContainer = styled.View`
 
 export const CalloutText = styled.Text`
   font-size: 14px;
+  font-family: Nunito_700Bold;
   color: #0089A5;
 `
 
@@ -41,6 +42,7 @@ export const Footer = styled.View`
 `
 
 export const FooterText = styled.Text`
+  font-family: Nunito_700Bold;
   color: #8FA7B3;
 `
 
