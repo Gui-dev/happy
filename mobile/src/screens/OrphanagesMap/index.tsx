@@ -7,7 +7,7 @@ import { Container, MapContainer, CalloutContainer, CalloutText, Footer,
   FooterText, CreateOrphanageButton, CreateOrphanageButtonText
 } from './style'
 
-export const Home: React.FC = () => {
+export const OrphanagesMap: React.FC = () => {
   return (
     <Container>
       <MapContainer 

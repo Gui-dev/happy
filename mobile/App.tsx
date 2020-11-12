@@ -4,7 +4,7 @@ import { AppLoading } from 'expo'
 import { useFonts } from 'expo-font'
 import { Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold } from '@expo-google-fonts/nunito'
 
-import { Home } from './src/screens/Home'
+import { OrphanagesMap } from './src/screens/OrphanagesMap'
 
 export default function App() {
 
@@ -21,6 +21,7 @@ export default function App() {
   return (
     <>
       <Home />
+      <StatusBar style="auto"/>
     </>
   )
 }
