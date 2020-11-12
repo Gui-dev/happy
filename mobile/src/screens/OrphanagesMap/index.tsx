@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 import { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps'
 import { Feather } from '@expo/vector-icons'
 
@@ -8,6 +9,13 @@ import { Container, MapContainer, CalloutContainer, CalloutText, Footer,
 } from './style'
 
 export const OrphanagesMap: React.FC = () => {
+
+  const { navigate } = useNavigation()
+
+  const handleNavigateToOrphanageDetails = () => {
+    navigate('OrphanageDetails')
+  }
+
   return (
     <Container>
       <MapContainer 
@@ -32,7 +40,7 @@ export const OrphanagesMap: React.FC = () => {
         >
           <Callout
             tooltip
-            onPress={ () => {} }
+            onPress={ handleNavigateToOrphanageDetails }
           >
             <CalloutContainer>
               <CalloutText>Lar de Maria</CalloutText>
