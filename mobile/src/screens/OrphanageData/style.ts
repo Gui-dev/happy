@@ -27,7 +27,6 @@ export const Comment = styled.Text`
 `
 
 export const Input = styled.TextInput`
-  text-align: top;
   padding: 18px 24px;
   margin-bottom: 16px;
   height: 56px;
