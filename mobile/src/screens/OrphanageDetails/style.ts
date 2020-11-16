@@ -3,6 +3,10 @@ import { Dimensions } from 'react-native'
 import MapView from 'react-native-maps'
 import { RectButton } from 'react-native-gesture-handler'
 
+interface IScheduleProps {
+  type?: string
+}
+
 export const Container = styled.ScrollView`
   flex: 1;
 `
@@ -48,7 +52,7 @@ export const MapViewContent = styled(MapView)`
   height: 150px;
 `
 
-export const RoutesContainer = styled.View`
+export const RoutesContainer = styled(RectButton)`
   padding: 16px;
   align-items: center;
   justify-content: center;
@@ -86,9 +90,18 @@ const scheduleItemGreen = css`
   border-radius: 20px;
 `
 
-export const ScheduleItem = styled.View`
+const scheduleItemRed = css`
+  background-color: #FEF6F9;
+  border-width: 1px;
+  border-color: #FFBCD4;
+  border-radius: 20px;
+`
+
+export const ScheduleItem = styled.View<IScheduleProps>`
   width: 48%;
   padding: 20px;
+  ${({ type }) => type === 'blue' ? scheduleItemBlue :
+    ( type === 'green' ? scheduleItemGreen : scheduleItemRed )};
 `
 
 const scheduleTextBlue = css`
@@ -99,10 +112,16 @@ const scheduleTextGreen = css`
   color: #37C77F;
 `
 
-export const ScheduleText = styled.Text`
+const scheduleTextRed = css`
+  color: #FF669D;
+`
+
+export const ScheduleText = styled.Text<IScheduleProps>`
   font-family: Nunito_600SemiBold;
   font-size: 16px;
   line-height: 24px;
+  ${({ type }) => type === 'blue' ? scheduleTextBlue :
+    ( type === 'green' ? scheduleTextGreen : scheduleTextRed )};
   margin-top: 20px;
 `
 
