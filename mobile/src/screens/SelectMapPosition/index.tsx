@@ -24,8 +24,8 @@ export const SelectMapPosition: React.FC = () => {
     <Container>
       <MapViewContainer
         initialRegion={{
-          latitude: -27.2092052,
-          longitude: -49.6401092,
+          latitude: -23.7833347,
+          longitude: -46.6802013,
           latitudeDelta: 0.008,
           longitudeDelta: 0.008,
         }}
