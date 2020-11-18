@@ -36,6 +36,18 @@ export const Input = styled.TextInput`
   border-radius: 20px;
 `
 
+export const UploadedImagesContainer = styled.View`
+  flex-direction: row;
+`
+
+export const Image = styled.Image`
+  margin-right: 8px;
+  margin-bottom: 32px;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+`
+
 export const ImagesInput = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
